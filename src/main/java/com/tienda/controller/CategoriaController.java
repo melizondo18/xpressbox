@@ -13,6 +13,7 @@ public class CategoriaController {
     @GetMapping ("/listado")
     public String listado(Model model){
         model.addAttribute("nombre: ","Lex Voorhout");
+        model.addAtribute(Mi edad es: [[${edad}]]);
         
         return "/categoria/listado";
     }
