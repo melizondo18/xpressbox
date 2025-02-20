@@ -16,7 +16,7 @@
                 </div>
                 <div class="card-body">  
                     <ul>
-                        <li>Categorias</li>
+                        <li th:each="c : ${categorias}">[[${c.descripcion}]]</li>
                         
                     </ul>
                 </div>
