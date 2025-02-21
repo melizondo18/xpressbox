@@ -9,19 +9,7 @@
     </head>
     <body>
         <header th:replace="~{layout/plantilla :: header}"/>
-        <div class="section m-5">
-            <div class ="card">
-                <div class="card-header">
-                    <h4> [[#{categoria.listado}]]</h4>
-                </div>
-                <div class="card-body">  
-                    <ul>
-                        <li th:each="c : ${categorias}">[[${c.descripcion}]]</li>
-                        
-                    </ul>
-                </div>
-            </div>
-        </div>
+        <section th:replace="~{categoria/fragmentos :: listado}"/>
         
         <footer th:replace="~{layout/plantilla :: footer}"/>    
         

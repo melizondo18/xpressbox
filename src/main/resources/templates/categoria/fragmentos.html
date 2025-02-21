@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html  
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+    <head th:replace="~{layout/plantilla :: head}">
+        <title>Techshop</title>
+        <meta charset="UTF-8"/>
+    </head>
+    <body>
+        <--<!-- Tercer Fragmento para la tabla de categorias -->
+        <section th:fragment="listado" class="m-4">
+            <div class="row p-3">
+                <div class="col-md-9">
+                    <div class="card p-2">
+                        <div class="card-header">
+                            <h4>[[#{categoria.listado}]]</h4>
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-stripped table-hover">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th>#</th>
+                                        <th>[[#{categoria.descripcion}]]</th>
+                                        <th>[[#{categoria.rutaImagen}]]</th>
+                                        <th>[[#{categoria.activo}]]</th>
+                                        <th> </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr th:each="c : ${categorias}">
+                                        <td>[[${c.idCategoria}]] </td>
+                                        <td>[[${c.descripcion}]] </td>
+                                        <td><img th:src="@{${c.rutaImagen}}" 
+                                                 alt="noData" height="75"/></td>
+                                        <td>[[${c.activo}]] </td>
+                                        <td>
+                                            <a class="btn btn-danger"
+                                                th:href="@{/categoria/eliminar/}+${c.idCategoria}">
+                                                <i class="fas fa-trash"></i>[[#{accion.eliminar}]]</a>
+                                            <a class="btn btn-success"
+                                               th:href="@{/categoria/modificar/}+${c.idCategoria}">
+                                                <i class="fas fa-pencil"></i>[[#{accion.actualizar}]]</a>
+                                        </td> </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                    </div>
+                </div>
+                <div class="col-md-3">
+
+                </div>
+            </div>
+            
+        </section>
+        
+        <div class="section m-5">
+            <div class ="card">
+                <div class="card-header">
+                    <h4> [[#{categoria.listado}]]</h4>
+                </div>
+                <div class="card-body">  
+                    <ul>
+                        <li th:each="c : ${categorias}">[[${c.descripcion}]]</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+
+        
+    </body>
+</html>
