@@ -21,7 +21,7 @@
     </head>
     <body>
         <header th:fragment="header" class="header">
-            <nav class="navbar navbar-expand-sm navbar-dark bg-dark p-0">
+            <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #071A2E; border-bottom: 3px solid #009688;">
                 <div class="container">
                     <a th:href="@{/}" class="navbar-brand">[[#{aplicacion.titulo}]]</a>
                     <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -87,7 +87,8 @@
                     </div>
                 </div>
             </nav>
-            <section id="main-header" class="py-2 bg-success text-white">
+            <section id="main-header" class="py-2 text-white" 
+         style="background-color: #051222; color: white; padding: 20px;">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-6">
@@ -96,10 +97,12 @@
                     </div>
                 </div>
             </section>
-
-        </header>    
-        
-        <footer th:fragment="footer" class="p-2 mt-5 bg-info text-white">
+            
+        </header>
+<div class="shape rect adobe-stock-df6a9b5a7713">
+</div>
+        <footer th:fragment="footer" class="p-2 mt-5 text-white" 
+        style="background-color: #071A2E; height: 60px; display: flex; align-items: center; justify-content: center;">
             <p class="text-center lead">&COPY; [[#{plantilla.derechos}]]</p>
         </footer>     
         

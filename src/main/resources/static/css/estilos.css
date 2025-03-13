@@ -6,7 +6,7 @@ body{
 }
 
 header{
-    background-color: #44a1a0;
+    background-color: #0d5c63;
     position: fixed;
     top:0;
     left:0;
@@ -52,7 +52,7 @@ nav{
 }
 
 .nav-link{
-    color:#0d5c63;
+    color:white;
     text-decoration: none;
 }
 
@@ -82,6 +82,31 @@ nav{
 }
 .enlace:hover{
     background-color: #78cdd7;
+}
+.background-section {
+    position: relative;
+    width: 100%;
+    height: 500px; 
+    background: url(https://design.penpot.app/assets/by-file-media-id/14b4ef9d-aa9c-815a-8005-df6a9afad42d);
+    background-size: cover;
+}
+
+.background-overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.background-text {
+    position: relative;
+    color: white;
+    text-align: center;
+    padding: 150px 20px;
+    font-size: 24px;
+    font-weight: bold;
 }
 
 
