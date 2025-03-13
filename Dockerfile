@@ -4,6 +4,6 @@ COPY . .
 RUN mvn clean package -DskipTests
  
 FROM openjdk:17.0.1-jdk-slim
-COPY --from=build /target/tienda-1.jar tienda.jar
+COPY --from=build /target/xpressbox-1.jar xpressbox.jar
 EXPOSE 80
-ENTRYPOINT ["java","-jar","tienda.jar"]
+ENTRYPOINT ["java","-jar","xpressbox.jar"]
