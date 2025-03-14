@@ -18,8 +18,8 @@
         <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
         <style>
             .nav-link .fab.fa-whatsapp {
-                font-size: 20px; /* Ajustar el tamaño */
-                color: #25D366;  /* Color del icono */
+                font-size: 20px;
+                color: #25D366;
             }
         </style>
     </head>
@@ -36,11 +36,7 @@
                             <li class="nav-item px-2"><a class="nav-link" th:href="@{/categoria/listado}">[[#{plantilla.categorias}]]</a></li>
                             <li class="nav-item px-2"><a class="nav-link" th:href="@{/producto/listado}">[[#{plantilla.productos}]]</a></li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" 
-                                   data-bs-toggle="dropdown" 
-                                   href="#" 
-                                   role="button" 
-                                   aria-expanded="false">[[#{plantilla.extras}]]</a>
+                                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">[[#{plantilla.extras}]]</a>
                                 <ul class="dropdown-menu dropdown-menu-dark">
                                     <li><a class="dropdown-item" th:href="@{/pruebas/listado}">[[#{plantilla.asociaciones}]]</a></li>
                                     <li><a class="dropdown-item" th:href="@{/pruebas/listado2}">[[#{plantilla.consultas}]]</a></li>
@@ -48,19 +44,12 @@
                                 </ul>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" 
-                                   data-bs-toggle="dropdown" 
-                                   href="#" role="button" 
-                                   aria-expanded="false">[[#{plantilla.admin}]]</a>
+                                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">[[#{plantilla.admin}]]</a>
                                 <ul class="dropdown-menu dropdown-menu-dark">
-                                    <li><a class="dropdown-item" th:href="@{/usuario/listado}">[[#{plantilla.usuarios}]]</a></li>                                    
+                                    <li><a class="dropdown-item" th:href="@{/usuario/listado}">[[#{plantilla.usuarios}]]</a></li>
                                     <li class="submenu submenu-md dropend">
-                                        <a class="dropdown-item dropdown-toggle" role="button" 
-                                           data-bs-toggle="dropdown" aria-expanded="false"
-                                           onclick="event.stopPropagation();">
-                                            [[#{plantilla.seguridad}]]
-                                        </a>
-                                        <ul class="dropdown-menu">                                            
+                                        <a class="dropdown-item dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false" onclick="event.stopPropagation();">[[#{plantilla.seguridad}]]</a>
+                                        <ul class="dropdown-menu">
                                             <li><a class="dropdown-item" th:href="@{/role/listado}">[[#{plantilla.troles}]]</a></li>
                                             <li><a class="dropdown-item" th:href="@{/usuario_role/asignar}">[[#{plantilla.permisos}]]</a></li>
                                             <li><a class="dropdown-item" th:href="@{/ruta/listado}">[[#{plantilla.rutas}]]</a></li>
@@ -70,33 +59,17 @@
                                 </ul>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="https://wa.me/1234567890?text=Hola%20quiero%20más%20información" target="_blank">
+                                <a class="nav-link" href="https://wa.me/1234567890?text=Hola%20quiero%20m%C3%A1s%20informaci%C3%B3n" target="_blank">
                                     <i class="fab fa-whatsapp"></i>
                                 </a>
                             </li>
                         </ul>
-                        <ul class="navbar-nav">
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" 
-                                   data-bs-toggle="dropdown" 
-                                   href="#" role="button" 
-                                   aria-expanded="false">[[#{plantilla.idioma}]]</a>
-                                <ul class="dropdown-menu dropdown-menu-dark">
-                                    <li><a class="dropdown-item" th:href="@{/(lang=es)}">Español</a></li>
-                                    <li><a class="dropdown-item" th:href="@{/(lang=en)}">English</a></li>
-                                    <li><a class="dropdown-item" th:href="@{/(lang=fr)}">Française</a></li>
-                                    <li><a class="dropdown-item" th:href="@{/(lang=pt)}">Portugaise</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                        <div id="resultBlock">
-
-                        </div>
+                        <!-- Botón de Iniciar Sesión -->
+                        <a href="/login" class="btn btn-outline-light">Iniciar Sesión</a>
                     </div>
                 </div>
             </nav>
-            <section id="main-header" class="py-2 text-white" 
-                     style="background-color: #051222; color: white; padding: 20px;">
+            <section id="main-header" class="py-2 text-white" style="background-color: #051222; color: white; padding: 20px;">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-6">
@@ -105,14 +78,10 @@
                     </div>
                 </div>
             </section>
-
         </header>
-        <div class="shape rect adobe-stock-df6a9b5a7713">
-        </div>
-        <footer th:fragment="footer" class="p-2 mt-5 text-white" 
-                style="background-color: #071A2E; height: 60px; display: flex; align-items: center; justify-content: center;">
+        <div class="shape rect adobe-stock-df6a9b5a7713"></div>
+        <footer th:fragment="footer" class="p-2 mt-5 text-white" style="background-color: #071A2E; height: 60px; display: flex; align-items: center; justify-content: center;">
             <p class="text-center lead">&COPY; [[#{plantilla.derechos}]]</p>
-        </footer>     
-
+        </footer>
     </body>
 </html>
