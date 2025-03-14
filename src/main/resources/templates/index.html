@@ -8,8 +8,17 @@
         <link rel="stylesheet" th:href="@{/static/css/estilos.css}"/>
     </head>
     
-    <body style="background-image: url('/static/fav/imagen_avion.jpeg'); background-size: cover; background-position: center; background-attachment: fixed; height: 100vh;">
+    <body style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/e/e2/RAF_C17_Transport_Aircraft_Loading_MOD_45153118.jpg'); 
+             background-size: cover; 
+             background-position: center; 
+             background-attachment: fixed; 
+             height: 100vh; 
+             margin: 0;">
         <header th:replace="~{layout/plantilla :: header}"/>
-        <footer th:replace="~{layout/plantilla :: footer}"/>    
-    </body>
+        <main style="flex: 1;"></main>
+
+        <footer th:replace="~{layout/plantilla :: footer}" 
+            style="background: rgba(0, 0, 0, 0.5); color: white; padding: 10px; text-align: center;"/>
+        </body>
+
 </html>
