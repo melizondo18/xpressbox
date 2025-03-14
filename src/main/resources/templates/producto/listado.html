@@ -4,23 +4,27 @@
     <head th:replace="~{layout/plantilla :: head}">
         <title>Calculadora de Envíos</title>
         <meta charset="UTF-8"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     </head>
     <body>
         <header th:replace="~{layout/plantilla :: header}"/>
         <div class="mx-5">
-            <h2>Calculadora de Envío</h2>
+            <h2>
+                <i class="fas fa-calculator"></i>
+                Calculadora de Envío
+            </h2>
             <!-- Formulario para calcular el costo de envío -->
             <form id="envioForm" method="get" th:action="@{/producto/listado}">
                 <label for="peso">Peso:</label>
                 <input type="number" id="peso" name="peso" class="form-control" step="0.01" required>
 
-                    <label for="unidad">Unidad:</label>
-                    <select id="unidad" name="unidad" class="form-select">
-                        <option value="kg">Kilogramos</option>
-                        <option value="lb">Libras</option>
-                    </select>
+                <label for="unidad">Unidad:</label>
+                <select id="unidad" name="unidad" class="form-select">
+                    <option value="kg">Kilogramos</option>
+                    <option value="lb">Libras</option>
+                </select>
 
-                    <button type="submit" class="btn btn-primary mt-3">Calcular</button>
+                <button type="submit" class="btn btn-primary mt-3">Calcular</button>
             </form>
 
             <!-- Resultados del cálculo de envío (si existen) -->
