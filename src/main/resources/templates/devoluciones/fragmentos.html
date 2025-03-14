@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <body>
+        <!-- Fragmento para iniciar una devolución -->
+        <section th:fragment="iniciarDevolucion">
+            <h2>Iniciar Devolución</h2>
+            <p>Complete el formulario para iniciar su devolución.</p>
+            <form th:action="@{/devoluciones/procesar}" method="POST">
+                <div class="mb-3">
+                    <label for="orderId">Número de Pedido:</label>
+                    <input type="text" class="form-control" id="orderId" name="orderId" required>
+                </div>
+                <div class="mb-3">
+                    <label for="reason">Motivo de Devolución:</label>
+                    <textarea class="form-control" id="reason" name="reason" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Enviar Devolución</button>
+            </form>
+        </section>
+    </body>
+</html>

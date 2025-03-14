@@ -17,8 +17,8 @@
         <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
         <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
         <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
-        
-        
+
+
     </head>
     <body>
         <header th:fragment="header" class="header">
@@ -32,6 +32,7 @@
                         <ul class="navbar-nav">
                             <li class="nav-item px-2"><a class="nav-link" th:href="@{/categoria/listado}">[[#{plantilla.categorias}]]</a></li>
                             <li class="nav-item px-2"><a class="nav-link" th:href="@{/producto/listado}">[[#{plantilla.productos}]]</a></li>
+                            <li class="nav-item px-2"><a class="nav-link" th:href="@{/devoluciones/returns}">[[#{plantilla.devoluciones}]]</a></li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" 
                                    data-bs-toggle="dropdown" 
@@ -79,6 +80,7 @@
                                     <li><a class="dropdown-item" th:href="@{/(lang=en)}">English</a></li>
                                     <li><a class="dropdown-item" th:href="@{/(lang=fr)}">Française</a></li>
                                     <li><a class="dropdown-item" th:href="@{/(lang=pt)}">Portugaise</a></li>
+                                    <li><a class="dropdown-item" th:href="@{/(lang=nl)}">Nederlands</a></li> 
                                 </ul>
                             </li>
                         </ul>
@@ -89,7 +91,7 @@
                 </div>
             </nav>
             <section id="main-header" class="py-2 text-white" 
-         style="background-color: #051222; color: white; padding: 20px;">
+                     style="background-color: #051222; color: white; padding: 20px;">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-6">
@@ -98,14 +100,21 @@
                     </div>
                 </div>
             </section>
-            
+
         </header>
-<div class="shape rect adobe-stock-df6a9b5a7713">
-</div>
+        <div class="shape rect adobe-stock-df6a9b5a7713">
+        </div>
         <footer th:fragment="footer" class="p-2 mt-5 text-white" 
-        style="background-color: #071A2E; height: 60px; display: flex; align-items: center; justify-content: center;">
+                style="background-color: #071A2E; height: 60px; display: flex; align-items: center; justify-content: center;">
             <p class="text-center lead">&COPY; [[#{plantilla.derechos}]]</p>
-        </footer>     
-        
+        </footer>  
+
+        <!-- WhatsApp Button -->
+        <!-- WhatsApp Floating Button -->
+        <a href="https://wa.me/50689215700" target="_blank" class="whatsapp-float">
+            <img src="/img/whatsapp.png" alt="WhatsApp Chat">
+        </a>
+
+
     </body>
 </html>

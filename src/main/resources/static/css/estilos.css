@@ -1,4 +1,4 @@
-/* Estilos para wel website*/
+/* Estilos para el website*/
 
 /* Reset default margins and paddings */
 * {
@@ -57,4 +57,30 @@ body {
   .navbar {
     flex-direction: column;
   }
+  
+  /* WhatsApp Floating Button */
+  .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 60px;
+      height: 60px;
+      background-color: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+      z-index: 1000;
+  }
+
+  .whatsapp-float img {
+      width: 40px;
+      height: 40px;
+  }
+  .whatsapp-float:hover {
+      transform: scale(1.1);
+      transition: 0.3s;
+  }
+
 }
