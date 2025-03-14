@@ -4,10 +4,9 @@
     <head th:replace="~{layout/plantilla :: head}">
         <title>XpressBox</title>
         <meta charset="UTF-8"/>        
-
     </head>
     <body>
-        <!-- 1 Sección para crear el boton de agregar... llamará a una ventana modal-->
+        <!-- 1 Sección para crear el botón de agregar... llamará a una ventana modal-->
         <section th:fragment="btnAgregar" class="py-4 mb-4 bg-light">
             <div class="container">
                 <div class="row">
@@ -20,10 +19,47 @@
                             <i class="fas fa-plus"></i> [[#{categoria.agregar}]]
                         </button>
                     </div>
+                    <div class="col-md-3">   
+                        <button 
+                            type="button" 
+                            class="btn btn-secondary btn-block" 
+                            data-bs-toggle="modal" 
+                            data-bs-target="#modalResena">
+                            <i class="fas fa-star"></i> Agregar Reseña
+                        </button>
+                    </div>
                 </div>
             </div>
         </section>
 
+        <!-- Agregar reseñas -->
+        <section th:fragment="modalResena">
+            <div id="modalResena" 
+                 class="modal fade" 
+                 tabindex="-1" 
+                 aria-labelledby="modalResenaLabel" 
+                 aria-hidden="true">
+                <div class="modal-dialog modal-md">
+                    <div class="modal-content">
+                        <div class="modal-header bg-info text-white">
+                            <h5 class="modal-title" id="modalResenaLabel">Agregar Reseña</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div> 
+                        <form>
+                            <div class="modal-body">
+                                <div class="mb-3">
+                                    <label for="producto" class="form-label">Producto:</label>
+                                    <input type="text" class="form-control" id="producto" placeholder="Escribe el nombre del producto" required="true"/>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="calificacion" class="form-label">¿Cuánto le das del 1 al 5?</label>
+                                    <input type="number" class="form-control" id="calificacion" min="1" max="5" placeholder="Ingresa un número del 1 al 5" required="true"/>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                <button type="submit" class="btn btn-primary">Guardar Reseña</button>
+                            </div>
         <!-- 2 Fragmento para agregar categoria, es la ventana modal -->
         <section th:fragment="agregarCategoria">
             <div id="agregarCategoria" 
