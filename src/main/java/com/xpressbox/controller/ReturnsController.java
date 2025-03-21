@@ -1,4 +1,3 @@
-/**/
 package com.xpressbox.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -1,4 +1,3 @@
-
 package com.xpressbox.service;
 
 import com.xpressbox.domain.Categoria;
@@ -9,39 +8,35 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
-
 public class CategoriaService {
-    
+
     @Autowired
     private CategoriaRepository categoriaRepository;
-    
-    @Transactional(readOnly=true)
-    public List<Categoria> getCategorias (boolean activos){
+
+    @Transactional(readOnly = true)
+    public List<Categoria> getCategorias(boolean activos) {
         var lista = categoriaRepository.findAll();
-        
+        //Falta algo xd
         return lista;
     }
-    
-    // Se escriben los metodos de CRUD Read Update Delete
-    
-    @Transactional(readOnly=true)
-    public Categoria getCategoria(Categoria categoria){
-        
+
+    //Metodos del CRUD Create Read Update Delete
+    @Transactional(readOnly = true)
+    public Categoria getCategoria(Categoria categoria) {
         return categoriaRepository.findById(categoria.getIdCategoria()).orElse(null);
     }
-    
-    //Eliminar el registro del ID
+
     @Transactional
-    public void delete(Categoria categoria){
+    public void delete(Categoria categoria) {
+        //Elimina el registro que contiene el id igual a lo pasado en categoria.getIdCategoria()
         categoriaRepository.delete(categoria);
     }
-    
-    //Guarda el registro del ID, 
-    //Si categoria.idcategoria esta vacio se inserta un registro
-    //Si categoria.idCategoria tiene algo se modifica el registro
-    
+
     @Transactional
-    public void save(Categoria categoria){
+    public void save(Categoria categoria) {
+        //Si categoria.IdCategoria esta vacio... se inserta un registro
+        //Si categoria.idCategoria tiene algo... se modifica ese registro
+        
         categoriaRepository.save(categoria);
     }
 }

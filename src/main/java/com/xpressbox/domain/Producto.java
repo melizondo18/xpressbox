@@ -4,25 +4,36 @@ import jakarta.persistence.*;
 import java.io.Serializable;
 import lombok.Data;
 
-@Data 
+@Data
 @Entity
-@Table(name="producto")
-
+@Table(name = "producto")
 public class Producto implements Serializable {
+
     private static final long serialVersionUID = 1L;
-    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id_producto")
+    @Column(name = "id_producto")
     private Long idProducto;
-    private Long idCategoria;
+    //private Long idCategoria;
     private String descripcion;
     private String detalle;
     private double precio;
     private int existencias;
     private String rutaImagen;
     private boolean activo;
+    
+    @ManyToOne
+    @JoinColumn(name="id_categoria")
+    private Categoria categoria;
 
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }  
+    
     public Long getIdProducto() {
         return idProducto;
     }
@@ -54,14 +65,14 @@ public class Producto implements Serializable {
     public void setExistencias(int existencias) {
         this.existencias = existencias;
     }
-    
-    public Long getIdCategoria() {
-        return idCategoria;
-    }
 
-    public void setIdCategoria(Long idCategoria) {
-        this.idCategoria = idCategoria;
-    }
+//    public Long getIdCategoria() {
+//        return idCategoria;
+//    }
+//
+//    public void setIdCategoria(Long idCategoria) {
+//        this.idCategoria = idCategoria;
+//    }
 
     public String getDescripcion() {
         return descripcion;
@@ -86,6 +97,5 @@ public class Producto implements Serializable {
     public void setActivo(boolean activo) {
         this.activo = activo;
     }
-    
-    
+
 }

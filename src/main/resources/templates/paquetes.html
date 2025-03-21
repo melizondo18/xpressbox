@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Rastreo de Paquete</title>
+</head>
+<body>
+    <h1>Rastreo de Paquete</h1>
+    
+    <form action="/buscar/paquetes" method="get">
+        <label for="numeroSeguimiento">Número de Seguimiento:</label>
+        <input type="text" id="numeroSeguimiento" name="numeroSeguimiento" required>
+        <button type="submit">Buscar</button>
+    </form>
+
+    <div th:if="${mensaje}">
+        <p th:text="${mensaje}"></p>
+    </div>
+
+    <div th:if="${paquete}">
+        <p><strong>Número de Seguimiento:</strong> <span th:text="${paquete.numeroSeguimiento}"></span></p>
+        <p><strong>Estado:</strong> <span th:text="${paquete.estado}"></span></p>
+        <p><strong>Fecha de Actualización:</strong> <span th:text="${paquete.fecha}"></span></p>
+    </div>
+</body>
+</html>
