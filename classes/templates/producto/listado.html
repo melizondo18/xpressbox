@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="~{layout/plantilla :: head}">
+        <title>Calculadora de Envíos</title>
+        <meta charset="UTF-8"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    </head>
+    <body>
+        <header th:replace="~{layout/plantilla :: header}"/>
+        <div class="mx-5">
+            <h2>
+                <i class="fas fa-calculator"></i>
+                Calculadora de Envío
+            </h2>
+            <!-- Formulario para calcular el costo de envío -->
+            <form id="envioForm" method="get" th:action="@{/producto/listado}">
+                <label for="peso">Peso:</label>
+                <input type="number" id="peso" name="peso" class="form-control" step="0.01" required>
+
+                <label for="unidad">Unidad:</label>
+                <select id="unidad" name="unidad" class="form-select">
+                    <option value="kg">Kilogramos</option>
+                    <option value="lb">Libras</option>
+                </select>
+
+                <button type="submit" class="btn btn-primary mt-3">Calcular</button>
+            </form>
+
+            <!-- Resultados del cálculo de envío (si existen) -->
+            <div th:if="${pesoKg != null}">
+                <h3>Resultado del Cálculo de Envío</h3>
+                <p><strong>Peso en Kilogramos:</strong> <span th:text="${pesoKg}"></span> kg</p>
+                <p><strong>Peso en Libras:</strong> <span th:text="${pesoLb}"></span> lb</p>
+                <p><strong>Costo Base:</strong> ¢<span th:text="${costoBase}"></span></p>
+                <p><strong>Costo Total (con 13% de impuesto):</strong> ¢<span th:text="${costoTotal}"></span></p>
+            </div>
+        </div>
+        <footer th:replace="~{layout/plantilla :: footer}"/>
+    </body>
+</html>

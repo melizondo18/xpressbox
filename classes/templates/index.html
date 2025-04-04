@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+    <head th:replace="~{layout/plantilla :: head}">
+        <title>XpressBox</title>
+        <meta charset="UTF-8"/>
+        <link rel="stylesheet" th:href="@{/static/css/estilos.css}"/>
+    </head>
+    
+    <body style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/e/e2/RAF_C17_Transport_Aircraft_Loading_MOD_45153118.jpg'); 
+             background-size: cover; 
+             background-position: center; 
+             background-attachment: fixed; 
+             height: 100vh; 
+             margin: 0;">
+        <header th:replace="~{layout/plantilla :: header}"/>
+        <main style="flex: 1;"></main>
+
+        <footer th:replace="~{layout/plantilla :: footer}" 
+            style="background: rgba(0, 0, 0, 0.5); color: white; padding: 10px; text-align: center;"/>
+        </body>
+
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+    <head th:fragment="head">
+        <title>XpressBox</title>
+        <meta charset="UTF-8"/>
+        <link rel="icon" type="image/png" sizes="16x16" href="/fav/favicon-16x16.png"/>
+        <link rel="icon" type="image/png" sizes="32x32" href="/fav/favicon-32x32.png"/>
+        <link rel="icon" type="image/png" sizes="96x96" href="/fav/favicon-96x96.png"/>
+        <link rel="icon" type="image/png" sizes="256x256" href="/fav/favicon-256x256.png"/>
+        <script th:src="@{/js/rutinas.js}"></script>
+        <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+        <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}"/>
+        <link rel="stylesheet" th:href="@{/static/css/estilos.css}"/>
+        <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+        <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+        <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+        <style>
+            .nav-link .fab.fa-whatsapp {
+                font-size: 20px;
+                color: #25D366;
+            }
+            #notificationsBtn {
+                font-size: 16px;
+                padding: 8px 15px;
+            }
+        </style>
+    </head>
+    <body>
+        <header th:fragment="header" class="header">
+            <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #071A2E; border-bottom: 3px solid #009688;">
+                <div class="container">
+                    <a th:href="@{/}" class="navbar-brand">[[#{aplicacion.titulo}]]</a>
+                    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                        <ul class="navbar-nav">
+                            <li class="nav-item px-2"><a class="nav-link" th:href="@{/categoria/listado}">[[#{plantilla.categorias}]]</a></li>
+                            <li class="nav-item px-2"><a class="nav-link" th:href="@{/calculadora}">[[#{plantilla.calculadora}]]</a></li>
+                            <li class="nav-item px-2"><a class="nav-link" th:href="@{/devoluciones/returns}">[[#{plantilla.devoluciones}]]</a></li>
+                            <li class="nav-item px-2"><a class="nav-link" th:href="@{/rastreo/buscar}">[[#{plantilla.envio}]]</a></li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">[[#{plantilla.extras}]]</a>
+                                <ul class="dropdown-menu dropdown-menu-dark">
+                                    <li><a class="dropdown-item" th:href="@{/pruebas/listado}">[[#{plantilla.asociaciones}]]</a></li>
+                                    <li><a class="dropdown-item" th:href="@{/pruebas/listado2}">[[#{plantilla.consultas}]]</a></li>
+                                    <li><a class="dropdown-item" th:href="@{/reportes/principal}">[[#{plantilla.reportes}]]</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">[[#{plantilla.admin}]]</a>
+                                <ul class="dropdown-menu dropdown-menu-dark">
+                                    <li><a class="dropdown-item" th:href="@{/usuario/listado}">[[#{plantilla.usuarios}]]</a></li>
+                                    <li class="submenu submenu-md dropend">
+                                        <a class="dropdown-item dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false" onclick="event.stopPropagation();">[[#{plantilla.seguridad}]]</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" th:href="@{/role/listado}">[[#{plantilla.troles}]]</a></li>
+                                            <li><a class="dropdown-item" th:href="@{/usuario_role/asignar}">[[#{plantilla.permisos}]]</a></li>
+                                            <li><a class="dropdown-item" th:href="@{/ruta/listado}">[[#{plantilla.rutas}]]</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a class="dropdown-item" th:href="@{/constante/listado}">[[#{plantilla.constantes}]]</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://wa.me/1234567890?text=Hola%20quiero%20m%C3%A1s%20informaci%C3%B3n" target="_blank">
+                                    <i class="fab fa-whatsapp"></i>
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="navbar-nav">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" 
+                                   data-bs-toggle="dropdown" 
+                                   href="#" role="button" 
+                                   aria-expanded="false">[[#{plantilla.idioma}]]</a>
+                                <ul class="dropdown-menu dropdown-menu-dark">
+                                    <li><a class="dropdown-item" th:href="@{/(lang=es)}">Español</a></li>
+                                    <li><a class="dropdown-item" th:href="@{/(lang=en)}">English</a></li>
+                                    <li><a class="dropdown-item" th:href="@{/(lang=fr)}">Française</a></li>
+                                    <li><a class="dropdown-item" th:href="@{/(lang=pt)}">Portugaise</a></li>
+                                    <li><a class="dropdown-item" th:href="@{/(lang=nl)}">Holandés</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        
+                        <!-- Botón de Notificacion -->
+                        <ul class="navbar-nav">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" id="notificationsBtn" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Notificaciones</a>
+                                <ul class="dropdown-menu dropdown-menu-dark">
+                                    <li><a class="dropdown-item" href="#">Problemas con Pago</a></li>
+                                    <li><a class="dropdown-item" href="#">Preferencias</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                        <!-- Botón de Iniciar Sesión -->
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a href="/login" class="btn btn-outline-light">Iniciar Sesión</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <section id="main-header" class="py-2 text-white" style="background-color: #051222; color: white; padding: 20px;">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h1><i class="fas fa-cog"></i> [[#{plantilla.suXpressBox}]]</h1>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </header>
+        <div class="shape rect adobe-stock-df6a9b5a7713"></div>
+        <footer th:fragment="footer" class="p-2 mt-5 text-white" style="background-color: #071A2E; height: 60px; display: flex; align-items: center; justify-content: center;">
+            <p class="text-center lead">&COPY; [[#{plantilla.derechos}]]</p>
+        </footer>
+    </body>
+</html>
+
