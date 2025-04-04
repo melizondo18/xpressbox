@@ -26,12 +26,16 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
             <scope>runtime</scope>
             <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot</artifactId>
+            <type>jar</type>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -48,21 +52,22 @@
             <artifactId>bootstrap</artifactId>
             <version>5.3.3</version>
         </dependency>
+
         <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>font-awesome</artifactId>
             <version>6.7.1</version>
-        </dependency>    
+        </dependency>
         <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>jquery</artifactId>
             <version>3.7.1</version>
-        </dependency>   
+        </dependency>
         <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>popper.js</artifactId>
             <version>2.11.7</version>
-        </dependency>   
+        </dependency>
         <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>webjars-locator</artifactId>
@@ -77,21 +82,31 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
-                
         <dependency>
             <groupId>com.google.firebase</groupId>
             <artifactId>firebase-admin</artifactId>
             <version>9.4.3</version>
-        </dependency>    
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.thymeleaf.extras</groupId>
+            <artifactId>thymeleaf-extras-springsecurity6</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-mail</artifactId>
+        </dependency>
     </dependencies>
-
+    
     <build>
-        <plugins>			
+        <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.xpressbox.xpressboxApplication</mainClass>
                     <excludes>
                         <exclude>
                             <groupId>org.projectlombok</groupId>
@@ -100,7 +115,6 @@
                     </excludes>
                 </configuration>
             </plugin>
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -113,5 +127,5 @@
             </plugin>
         </plugins>
     </build>
-
 </project>
+
