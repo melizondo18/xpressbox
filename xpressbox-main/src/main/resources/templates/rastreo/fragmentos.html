@@ -1,0 +1,51 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <body>
+        <!-- Fragmento para rastreo dentro de una carta -->
+        <section th:fragment="rastreo">
+            <div class="row row-cols-4 p-2">
+                <div class="card" style="max-width: 500px; margin: auto; padding: 20px;">
+                    <div class="card-body">
+                        <h2 class="card-title text-center">[[#{plantilla.envio.paquete}]]</h2>
+                        <p class="card-text text-center">[[#{plantilla.envio.codigo}]].</p>
+                        <form method="post" th:action='@{/rastreo/resultado_busqueda}' class='was-validated'>
+                            <div class="mb-3">
+                                <label for="codigoReferencia">[[#{plantilla.envio.referencia}]]:</label>
+                                <input type="text" class="form-control" th:value="${precio}" name="precio" required="true">
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block"><i class="fa-solid fa-magnifying-glass"></i> [[#{plantilla.envio.paquete}]]</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section th:fragment="tarjetas">
+            <div class="row row-cols-4 p-2">
+                <div class="card" th:each="p:${productos}">
+                    <figure>
+                        <img th:src="${p.rutaImagen}" height="200" class="card-img-top" alt="..."/>
+                        <figcaption class="d-flex justify-content-between">
+                            <span>¢[[${p.precio}]]</span>
+                            <span>([[${p.existencias}]])</span>
+                        </figcaption>
+                    </figure>
+                    <div class="card-header">
+                        <h5 class="card-title">[[${p.descripcion}]]</h5>
+                    </div>                         
+                    <div class="card-body">                        
+                        <p class="card-text">[[${p.detalle}]]</p>
+                        <div class="card-footer"
+                             <form>
+                                <input type="hidden" name="idProducto" th:value="${p.idProducto}"/>
+                                <input type="hidden" name="existencias" th:value="${p.existencias}"/>
+                                <button type='button' onclick='addCart(this.form)'class='btn btn-primary'>   
+                                    <i class="fas fa-cart-arrow-down"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+        </section>
+    </body>
+</html>

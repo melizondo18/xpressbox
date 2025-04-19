@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="~{layout/plantilla :: head}">
+        <title>Calculadora de Envíos</title>
+        <meta charset="UTF-8"/>
+    </head>
+    <body>
+        <header th:replace="~{layout/plantilla :: header}"/>
+        <div class="mx-5">
+            <h2>
+                <i class="fas fa-calculator"></i>
+                [[#{plantilla.calculadora.envio}]]
+            </h2>
+            <!-- Formulario para calcular el costo de envío -->
+            <form id="envioForm" method="get" th:action="@{/calculadora}">
+                <label for="peso">[[#{plantilla.calculadora.peso}]]:</label>
+                <input type="number" id="peso" name="peso" class="form-control" step="0.01" required>
+
+                <label for="unidad">[[#{plantilla.calculadora.unidad}]]:</label>
+                <select id="unidad" name="unidad" class="form-select">
+                    <option value="kg">[[#{plantilla.calculadora.kilo}]]</option>
+                    <option value="lb">[[#{plantilla.calculadora.libra}]]</option>
+                </select>
+
+                <button type="submit" class="btn btn-primary mt-3">[[#{plantilla.calculadora.calcular}]]</button>
+            </form>
+
+            <!-- Resultados del cálculo de envío (si existen) -->
+            <div th:if="${pesoKg != null}">
+                <h3>[[#{plantilla.calculadora.calculo}]]</h3>
+                <p><strong>[[#{plantilla.calculadora.kilo}]]:</strong> <span th:text="${pesoKg}"></span> kg</p>
+                <p><strong>[[#{plantilla.calculadora.libra}]]:</strong> <span th:text="${pesoLb}"></span> lb</p>
+                <p><strong>[[#{plantilla.calculadora.costolibra}]]:</strong> ¢<span th:text="${costoBase}"></span></p>
+                <p><strong>[[#{plantilla.calculadora.impuesto}]]:</strong> ¢<span th:text="${costoTotal}"></span></p>
+            </div>
+        </div>
+        <footer th:replace="~{layout/plantilla :: footer}"/>
+    </body>
+</html>
