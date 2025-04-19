@@ -1,7 +1,6 @@
 package com.xpressbox.controller;
 
 import com.xpressbox.domain.Usuario;
-import com.xpressbox.service.FirebaseStorageService;
 import com.xpressbox.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -32,19 +31,10 @@ public class UsuarioController {
         return "/usuario/modifica";
     }
 
-    @Autowired
-    private FirebaseStorageService firebaseStorageService;
-
     @PostMapping("/guardar")
     public String usuarioGuardar(Usuario usuario,
             @RequestParam("imagenFile") MultipartFile imagenFile) {
         if (!imagenFile.isEmpty()) {
-            usuarioService.save(usuario,false);
-            usuario.setRutaImagen(
-                    firebaseStorageService.cargaImagen(
-                            imagenFile,
-                            "usuario",
-                            usuario.getIdUsuario()));
         }
         usuarioService.save(usuario,true);
         return "redirect:/usuario/listado";

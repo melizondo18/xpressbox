@@ -3,7 +3,6 @@ package com.xpressbox.controller;
 import com.xpressbox.domain.Producto;
 import com.xpressbox.service.CategoriaService;
 import com.xpressbox.service.ProductoService;
-import com.xpressbox.service.FirebaseStorageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -48,19 +47,11 @@ public class ProductoController {
         return "/producto/modifica";
     }
 
-    @Autowired
-    private FirebaseStorageService firebaseStorageService;
-
     @PostMapping("/guardar")
     public String guardar(Producto producto, @RequestParam("imagenFile") MultipartFile imagenFile) {
         if (!imagenFile.isEmpty()) {
             //Nos pasaron una imagen
             productoService.save(producto);
-            String ruta = firebaseStorageService.cargaImagen(imagenFile,
-                     "producto",
-                     producto.getIdProducto()
-            );
-            producto.setRutaImagen(ruta);
         }
         productoService.save(producto);
         return "redirect:/producto/listado";

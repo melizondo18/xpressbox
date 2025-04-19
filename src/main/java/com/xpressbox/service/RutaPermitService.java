@@ -31,6 +31,7 @@ public class RutaPermitService {
         return rutasPermit;
     }
     
+    
     @Transactional(readOnly=true)
     public RutaPermit getRutaPermit(RutaPermit rutaPermit) {
         return rutaPermitRepository.findById(rutaPermit.getIdRuta()).orElse(null);

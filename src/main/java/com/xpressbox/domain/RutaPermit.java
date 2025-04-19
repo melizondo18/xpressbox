@@ -1,4 +1,3 @@
-
 package com.xpressbox.domain;
 
 import jakarta.persistence.*;

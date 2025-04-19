@@ -21,8 +21,6 @@ public class RegistroService {
     private UsuarioService usuarioService;
     @Autowired
     private MessageSource messageSource;
-    @Autowired
-    private FirebaseStorageService firebaseStorageService;
 
     
     //Este metodo se usa cuando se va a "activar" un usuario via el correo enviado, por medio del link.
@@ -52,7 +50,6 @@ public class RegistroService {
 
         if (!imagenFile.isEmpty()) {
             usuarioService.save(usuario, false);
-            usuario.setRutaImagen(firebaseStorageService.cargaImagen(imagenFile,"usuarios",usuario.getIdUsuario()));
         }
         usuarioService.save(usuario, true);
     }
